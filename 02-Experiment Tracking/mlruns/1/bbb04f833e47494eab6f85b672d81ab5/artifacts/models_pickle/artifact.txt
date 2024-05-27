@@ -1,0 +1,1 @@
+This is a sample artifact for the models_pickle path.
