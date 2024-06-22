@@ -1,5 +1,6 @@
 # Basic AWS setup
 
+
 This tutorials explains how to configure a remote tracking server on AWS. We will use an RDS database as the backend store and an s3 bucket as the artifact store.
 
 1. First, you need to [create an AWS account](https://aws.amazon.com/free). If you open a new account, AWS allows you to use some of their products for free but take into account that **you may be charged for using the AWS services**. More information [here](https://youtu.be/rkKvzCskpLE) and [here](https://aws.amazon.com/premiumsupport/knowledge-center/free-tier-charges/).
@@ -80,3 +81,4 @@ Note: before launching the server, check that the instance can access the s3 buc
 6. Access the remote tracking server from your local machine.
 
 Open a new tab on your web browser and go to this address: `http://<EC2_PUBLIC_DNS>:5000` (you can find the instance's public DNS by checking the details of your instance in the EC2 Console).
+
