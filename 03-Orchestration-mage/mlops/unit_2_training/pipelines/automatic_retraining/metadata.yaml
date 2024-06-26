@@ -1,0 +1,81 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/sensors/detect_new_data.py
+  downstream_blocks:
+  - retrain/sklearn
+  - retrain/xgboost2
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: detect_new_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: sensor
+  upstream_blocks: []
+  uuid: detect_new_data
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    file_source:
+      path: unit_2_training/custom/retrain/sklearn.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: retrain/sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - detect_new_data
+  uuid: retrain/sklearn
+- all_upstream_blocks_executed: true
+  color: yellow
+  configuration:
+    file_source:
+      path: unit_2_training/custom/retrain/xgboost2.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: retrain/XGBoost2
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - detect_new_data
+  uuid: retrain/xgboost2
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-21 08:18:35.055709+00:00'
+data_integration: null
+description: retraining
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: automatic_retraining
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- retraining
+type: python
+uuid: automatic_retraining
+variables_dir: /home/src/mage_data/unit_2_training
+widgets: []

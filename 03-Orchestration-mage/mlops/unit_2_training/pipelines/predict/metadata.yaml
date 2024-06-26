@@ -1,0 +1,81 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/global_data_products/model.py
+    global_data_product:
+      uuid: xgboost
+  downstream_blocks:
+  - inference_2
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Model
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: model
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    file_path: unit_2_training/custom/inference_2.py
+    file_source:
+      path: unit_2_training/custom/inference_2.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: inference_2
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - model
+  uuid: inference_2
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_2_training/markdowns/online_inference_guid_curl_command.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: online inference guid curl command
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: online_inference_guid_curl_command
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-21 20:49:26.761304+00:00'
+data_integration: null
+description: Online Inference for real time prediction
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Predict
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: predict
+variables_dir: /home/src/mage_data/unit_2_training
+widgets: []

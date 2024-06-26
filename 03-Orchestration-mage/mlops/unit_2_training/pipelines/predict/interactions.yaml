@@ -1,0 +1,5 @@
+blocks:
+  inference_2:
+  - uuid: inputs.yaml
+layout: []
+permissions: []
