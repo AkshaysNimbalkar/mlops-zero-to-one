@@ -1,0 +1,39 @@
+Model Deployment:
+
+Two Ways - 
+    1. Batch (offline mode) - Run Regularly
+    2. Streaming (Running Continously) (Online Mode) - 
+        a) Web Services
+        b) Streaming
+
+Batch:
+    Regular Interval model run - (hourly, Daily, weekly, monthly etc)
+        Database -> Running model Daily -> Prediction -> Dashboard
+
+        ex. Marketing Related Task (Churn Predction)
+
+Web Service:
+    - Up and Running all the time
+    - Instant Predction
+    - kind of client-server (1*1 Relationship where client is backend)
+
+    User(App) -> Backend -> Model -> Predict -> User
+    
+    ex. Taxi Ride duration prediction
+
+
+Streaming:
+    - (1*N) or (N*N) Relationship
+    - one or more producers and one or more consumers
+    ![image.png](attachment:b6f47ba9-6981-469e-a5f0-cb7e3e30a350.png)
+    
+    - there is no direct connection between producers and consumers
+    ex. User(App) -> Backend -> Ride_Started -> Tip_Prediction
+                                          -> Duration_Predction  
+
+    ex. User (Uploads Video on the youtube) -> Backend -> EventStream -> consumer1 (Copyright violation) ->
+                                                                -> Consumer2 (Adult videos restrcion) > prediction Event Stream - > Decision Service 
+                                                                       -> consumer3 (violence) ->
+                                                                       -> etc ->
+
+    ex. Recommendation Systme: once video uploded whome to notify, whome to avoid etc.
