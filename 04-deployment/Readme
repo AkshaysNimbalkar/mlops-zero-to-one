@@ -37,3 +37,32 @@ Streaming:
                                                                        -> etc ->
 
     ex. Recommendation Systme: once video uploded whome to notify, whome to avoid etc.
+
+
+create virtual environment to have the same dependecies as ML model:
+
+    -pip install pipenv
+    -pipenv install scikit-learn==1.3.0 flask
+    -to activate it: pipenv shell
+    -to decativate: exit, deactivate
+    -to clear the cache: pipenv --clear
+
+
+
+Deployment with Flask:
+after running flask we get this warning,
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+
+so for production enviornment install gunicorn
+
+pipenv install gunicorn
+gunicorn --bind=0.0.0.0:9696 predict:app
+
+Development dependancies only installation in virtual enviournment:
+    pipenv install --dev requests
+
+to remove virtual enviornment:
+    -pipenv --rm
+    -rm Pipfile Pipfile.lock
+
+    
