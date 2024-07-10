@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY [ "Pipfile", "Pipfile.lock", "./" ]
 
-RUN pipenv install --system --deploy
+# Install the dependencies from Pipfile.lock
+RUN pipenv install --system --deploy --ignore-pipfile --verbose
 
 COPY [ "predict.py", "lin_reg.bin", "./" ]
 

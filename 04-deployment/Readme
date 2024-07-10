@@ -65,4 +65,39 @@ to remove virtual enviornment:
     -pipenv --rm
     -rm Pipfile Pipfile.lock
 
+- Create the Dockerfile and build the image:
+docker build -t ride-duration-prediction-service:v1 .
+
+- RUN the image:
+docker run -it --rm -p 9696:9696 ride-duration-prediction-service:v1
+
+
+***** Bonus ******:
+Steps to Deploy Flask app to AWS EC2
+1. connect to ec2 instance
+ssh -i /path/to/your-key-pair.pem ec2-user@your-ec2-public-dns
+
+2. Install Docker on EC2:
+-Update the Installed Packages and Package Cache: sudo yum update -y
+-Install Docker: sudo amazon-linux-extras install docker -y
+-Start Docker: sudo service docker start
+-Add the ec2-user to the docker group: sudo usermod -a -G docker ec2-user
+-Reboot the instance: sudo reboot
+-Reconnect to Your EC2 Instance.
+
+3. Deploy flask app on EC2:
+-Transfer files to ec2:
+ scp -i /path/to/your-key-pair.pem -r /path/to/your/flask-app ec2-user@your-ec2-public-dns:/home/ec2-user
+-Build the Docker Image:
+    cd /home/ec2-user/flask-app
+    docker build -t flask-app .
+
+4. Run the Docker Container:
+    docker run -p 5000:5000 flask-app
+
+Access :  http://your-ec2-public-dns:5000
+
+
+
+
     
