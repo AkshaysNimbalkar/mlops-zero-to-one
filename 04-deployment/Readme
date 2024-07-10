@@ -85,7 +85,7 @@ ssh -i /path/to/your-key-pair.pem ec2-user@your-ec2-public-dns
 -Reboot the instance: sudo reboot
 -Reconnect to Your EC2 Instance.
 
-3. Deploy flask app on EC2:
+3. Deploy docker flask app on EC2:
 -Transfer files to ec2:
  scp -i /path/to/your-key-pair.pem -r /path/to/your/flask-app ec2-user@your-ec2-public-dns:/home/ec2-user
 -Build the Docker Image:
@@ -93,9 +93,10 @@ ssh -i /path/to/your-key-pair.pem ec2-user@your-ec2-public-dns
     docker build -t flask-app .
 
 4. Run the Docker Container:
-    docker run -p 5000:5000 flask-app
+    docker run -p 9696:9696 flask-app
 
-Access :  http://your-ec2-public-dns:5000
+run from ec2:
+curl -X POST http://your-ec2-public-dns:9696/predict -H "Content-Type: application/json" -d '{"PULocationID": 10, "DOLocationID": 50,  "trip_distance": 40}'
 
 
 
