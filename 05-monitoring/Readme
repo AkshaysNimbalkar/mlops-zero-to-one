@@ -1,0 +1,38 @@
+
+
+1. Configuration and Setup:
+- create vnenv and install requirement.txt using:
+     pip install requirements.txt
+    
+- create docker-compose.yml
+    - list all the services need to use: postgres, garfana, adminer
+    - connect all the services using docker network 
+
+- create config folder: for grafana datasource
+    - write grafana_datasources.yaml (we have only one data source as postgres)
+
+- build the docker-compose up --build to start the comtainers
+
+2. Build the baseline linear Regression Model using baseline_model_nyc_taxi_data.ipynab
+
+3. Creation Of Evidently Metrics Report for monitoring in Grafana:
+    using ColumnDriftMetric, DatasetDriftMetric, DatasetMissingValuesMetric
+
+4. Create Evidently Dashboard:
+    run the evidently ui in the command prompt to upen the url
+
+5. Create Dummy Metrics using dummy_metrics_calculations.py and load it to the postgres datatbase:
+- connect postgres database to the grafana to build the testing dashboartd.\
+
+6. Calculate all Metric instead of dummy metrics calculations using evidently_metrics+calculation.py:
+- create flow using prefect (optional)
+- start prefct ui: prefect server start
+
+7. Save Grafana Dashboard:
+- so that you can start it anytime after closing the garfana application
+
+8. Debug or monitor model performance and find out why related all model questions??:
+- use evidently Report
+- metric_preset used to monitor data pipeline for example DataDriftPreset - to monitor data quality, feature performance etc
+- test_suite provides different tests ex. to monitor the threshold of the model
+- test_preset provides different test ex. DataDriftTestPreset - to monitor data quality
