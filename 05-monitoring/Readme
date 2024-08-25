@@ -1,4 +1,13 @@
 
+Importance of Monitoring:
+Monitoring is crucial for ensuring that ML models perform as expected in production.
+It helps in detecting issues early, maintaining model performance, and ensuring data quality.
+
+Metrics for Monitoring:
+Various metrics are used to measure the performance and quality of both the data and the models. These metrics can include accuracy, precision, recall, data drift, and model drift among others.
+
+Batch Monitoring Pipelines:
+The concept of batch monitoring pipelines is introduced as a method to systematically monitor and evaluate models at regular intervals.
 
 1. Configuration and Setup:
 - create vnenv and install requirement.txt using:
